@@ -65,4 +65,11 @@ public class ProductController {
 		result.put("message", "berhasi dihapus");
 		return result;
 	}
+
+	@RequestMapping("getBySearch/{search}")
+	public List<Product> getBySearch(@PathVariable String search) {
+		List<Product> result = new ArrayList<Product>();
+		productDao.findBySearch(search).forEach(result::add);
+		return  result;
+	}
 }
