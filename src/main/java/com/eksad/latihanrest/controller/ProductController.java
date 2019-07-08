@@ -62,7 +62,7 @@ public class ProductController {
 	public HashMap<String, Object> delete(@PathVariable Long id){
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		productDao.deleteById(id);
-		result.put("message", "berhasi dihapus");
+		result.put("message", "berhasil dihapus");
 		return result;
 	}
 
