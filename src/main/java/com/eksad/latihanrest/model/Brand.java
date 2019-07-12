@@ -7,10 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 //@Getter @Setter  //
@@ -24,21 +23,16 @@ import lombok.ToString;
 @Table(name = "brand")
 public class Brand extends BaseEntity {
 	
-//	@Id
+	@ApiModelProperty(value = "Brand's ID (Primary key)")
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // karena auto increment
-//	private Long id;
-//	
-////	@EqualsAndHashCode.Include // kalo pake @data, ini ga perlu ada
-//	@Column(nullable = false)
-//	private String name;
-//	
-//	@Column(name = "product_type")  // nama kolom di pgadmin/database
-//	private String productType;
+	private Long id;
 
-//2-------------------------------------------------------------------------------
+	@ApiModelProperty(value = "Brand's Name", required = true)
 	@Column(nullable = false)
 	private String name;
 
+	@ApiModelProperty(value = "Product's Type", required = true)
 	@Column(name = "product_type")
 	private String productType;
 }
